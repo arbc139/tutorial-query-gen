@@ -130,7 +130,7 @@ def main():
     years=[2015, 2016, 2017, 2018, 2019],
     semesters=[1, 2],
     # All majors + 3 Generals
-    course_id_prefixes=v_generator.major_codes | set('XYZ'),
+    course_id_prefixes=v_generator.major_codes | set(['XYZ']),
     # course_id_prefixes=v_generator.major_codes | v_generator.get_sample_general_codes(3),
   )
   for i, unique_key in enumerate(course_unique_keys):
@@ -272,7 +272,7 @@ def main():
     # Courses Table
     for course in courses:
       sql = sql_maker.make_dict(
-        table_name='COURSES',
+        table_name='COURSE',
         columns=[
           'COURSE_ID', 'YEAR', 'SEMESTER', 'COURSE_ID_PREFIX', 'COURSE_ID_NO',
           'DIVISION_NO', 'COURSE_NAME', 'PROF_ID', 'BUILDNO', 'ROOMNO',

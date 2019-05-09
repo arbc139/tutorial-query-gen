@@ -219,11 +219,12 @@ class ValueGenerator():
         'max_enrollees': int(group['max_enrollees'] * random.uniform(0.3, 1)),
       }
 
-    student_course_set = list(itertools.product(student_set, course_set))
-    random.shuffle(student_course_set)
+    total_sc_set = list(itertools.product(student_set, course_set))
+    sc_count = int(0.4 * len(total_sc_set))
+    sc_set = random.sample(total_sc_set, k=sc_count)
 
     results = []
-    for student_id, course_id in student_course_set:
+    for student_id, course_id in sc_set:
       enrollee_counter = course_id_enrollee_counter_map[course_id]
 
       if (enrollee_counter['count'] >= enrollee_counter['max_enrollees']):
