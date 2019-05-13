@@ -24,6 +24,8 @@ def main():
   options = parse_commands(sys.argv[1:])
   h_printer = HangulPrinter()
 
+  random.seed()
+
   # Static Tables
   # Read building.csv
   buildings = None
